@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mr. Shaurma | Dilijan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">MR. <span>SHAURMA</span></div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#order">Order</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button class="cart-button" onclick="scrollToOrder()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+    </nav>
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="small-title">WELCOME TO</p>
+
+        <h1>MR. <span>SHAURMA</span></h1>
+
+        <h2>Fresh • Hot • Delicious</h2>
+
+        <p>
+            Delicious shawarma and fast food in the heart of Dilijan.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu" class="main-button">
+                🌯 ORDER NOW
+            </a>
+
+            <a href="tel:+37443300800" class="call-button">
+                📞 CALL US
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INFORMATION -->
+
+<section class="information">
+
+    <div class="info-card">
+        <h3>📍 Location</h3>
+        <p>Gorki 7/8, Maxim Gorky St</p>
+        <p>Dilijan, Armenia</p>
+    </div>
+
+    <div class="info-card">
+        <h3>🕐 Opening Hours</h3>
+        <p>12:00 – 22:00</p>
+        <p>Delivery: 13:00 – 21:00</p>
+    </div>
+
+    <div class="info-card">
+        <h3>📞 Phone</h3>
+        <p>043 300800</p>
+
+        <a href="tel:+37443300800">
+            Call Now
+        </a>
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="menu-section" id="menu">
+
+    <div class="section-title">
+
+        <p>OUR FOOD</p>
+
+        <h2>MR. SHAURMA MENU</h2>
+
+        <p>Choose your favorites and add them to your order.</p>
+
+    </div>
+
+
+    <div class="menu-container">
+
+
+        <!-- ITEM 1 -->
+
+        <div class="food-card">
+
+            <div class="food-icon">🌯</div>
+
+            <h3>Classic Shawarma</h3>
+
+            <p>
+                Chicken, fresh vegetables and our special sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>1,500 ֏</strong>
+
+                <button onclick="addToCart('Classic Shawarma',1500)">
+                    + Add
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ITEM 2 -->
+
+        <div class="food-card">
+
+            <div class="food-icon">🌯</div>
+
+            <h3>Large Shawarma</h3>
+
+            <p>
+                Large chicken shawarma with vegetables and sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>2,000 ֏</strong>
+
+                <button onclick="addToCart('Large Shawarma',2000)">
+                    + Add
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ITEM 3 -->
+
+        <div class="food-card">
+
+            <div class="food-icon">🍟</div>
+
+            <h3>French Fries</h3>
+
+            <p>
+                Crispy golden french fries.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>800 ֏</strong>
+
+                <button onclick="addToCart('French Fries',800)">
+                    + Add
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ITEM 4 -->
+
+        <div class="food-card">
+
+            <div class="food-icon">🥤</div>
+
+            <h3>Cola</h3>
+
+            <p>
+                Cold refreshing drink.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>500 ֏</strong>
+
+                <button onclick="addToCart('Cola',500)">
+                    + Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section class="order-section" id="order">
+
+    <div class="section-title">
+
+        <p>YOUR CART</p>
+
+        <h2>Your Order</h2>
+
+    </div>
+
+
+    <div class="order-box">
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+
+        <div class="total">
+
+            <span>Total</span>
+
+            <span>
+                <span id="total-price">0</span> ֏
+            </span>
+
+        </div>
+
+
+        <hr>
+
+
+        <h3>Delivery Information</h3>
+
+
+        <label>Your name</label>
+
+        <input
+            type="text"
+            id="customer-name"
+            placeholder="Enter your name"
+        >
+
+
+        <label>Phone number</label>
+
+        <input
+            type="tel"
+            id="customer-phone"
+            placeholder="+374..."
+        >
+
+
+        <label>Delivery address</label>
+
+        <input
+            type="text"
+            id="customer-address"
+            placeholder="Your address in Dilijan"
+        >
+
+
+        <label>Comment</label>
+
+        <textarea
+            id="customer-comment"
+            placeholder="Extra sauce, no onions, etc."
+        ></textarea>
+
+
+        <button
+            class="place-order"
+            onclick="placeOrder()"
+        >
+            PLACE ORDER
+        </button>
+
+
+        <p class="order-note">
+            We will prepare your order information so you can contact
+            Mr. Shaurma to confirm it.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>MR. SHAURMA</h2>
+
+    <p>Gorki 7/8, Dilijan, Armenia</p>
+
+    <p>Open 12:00 – 22:00</p>
+
+    <a href="tel:+37443300800">
+        📞 043 300800
+    </a>
+
+</section>
+
+
+<footer>
+
+    <p>© 2026 Mr. Shaurma • Dilijan</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
