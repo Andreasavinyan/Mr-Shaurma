@@ -11,80 +11,101 @@
 
 <body>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">MR. <span>SHAURMA</span></div>
+<header class="navbar">
+    <a href="#home" class="nav-logo">
+        MR.<span>SHAURMA</span>
+    </a>
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#menu">Menu</a>
-            <a href="#order">Order</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-        <button class="cart-button" onclick="scrollToOrder()">
-            🛒 Cart (<span id="cart-count">0</span>)
-        </button>
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
+
+    <button class="cart-btn" onclick="openCart()">
+        CART <span id="cart-count">0</span>
+    </button>
 </header>
 
 
-<!-- HOME -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+    <div class="hero-bg-text">SHAURMA</div>
 
-        <p class="small-title">WELCOME TO</p>
+    <div class="hero-content reveal">
 
-        <h1>MR. <span>SHAURMA</span></h1>
+        <div class="hero-badge">DILIJAN • EST. LOCAL</div>
 
-        <h2>Fresh • Hot • Delicious</h2>
+        <h1>
+            MR.
+            <span>SHAURMA</span>
+        </h1>
+
+        <div class="red-line"></div>
+
+        <h2>HOT. FRESH. MADE FOR YOU.</h2>
 
         <p>
-            Delicious shawarma and fast food in the heart of Dilijan.
+            Fresh fast food in the heart of Dilijan.
+            Order your favorites and enjoy.
         </p>
 
         <div class="hero-buttons">
-
-            <a href="#menu" class="main-button">
-                🌯 ORDER NOW
+            <a href="#menu" class="primary-btn">
+                VIEW MENU
             </a>
 
-            <a href="tel:+37443300800" class="call-button">
-                📞 CALL US
+            <a href="tel:+37443300800" class="secondary-btn">
+                CALL TO ORDER
             </a>
-
         </div>
 
     </div>
+
+    <a href="#menu" class="scroll-down">
+        <span>SCROLL</span>
+        <div>↓</div>
+    </a>
 
 </section>
 
 
-<!-- INFORMATION -->
+<!-- QUICK INFO -->
 
-<section class="information">
+<section class="quick-info reveal">
 
-    <div class="info-card">
-        <h3>📍 Location</h3>
-        <p>Gorki 7/8, Maxim Gorky St</p>
-        <p>Dilijan, Armenia</p>
+    <div class="info">
+        <span class="info-icon">📍</span>
+        <div>
+            <small>FIND US</small>
+            <strong>Gorki 7/8, Dilijan</strong>
+        </div>
     </div>
 
-    <div class="info-card">
-        <h3>🕐 Opening Hours</h3>
-        <p>12:00 – 22:00</p>
-        <p>Delivery: 13:00 – 21:00</p>
+    <div class="info">
+        <span class="info-icon">🕐</span>
+        <div>
+            <small>OPEN DAILY</small>
+            <strong>12:00 — 22:00</strong>
+        </div>
     </div>
 
-    <div class="info-card">
-        <h3>📞 Phone</h3>
-        <p>043 300800</p>
+    <div class="info">
+        <span class="info-icon">🛵</span>
+        <div>
+            <small>DELIVERY</small>
+            <strong>13:00 — 21:00</strong>
+        </div>
+    </div>
 
-        <a href="tel:+37443300800">
-            Call Now
-        </a>
+    <div class="info">
+        <span class="info-icon">☎</span>
+        <div>
+            <small>CALL US</small>
+            <strong>043 300800</strong>
+        </div>
     </div>
 
 </section>
@@ -94,116 +115,141 @@
 
 <section class="menu-section" id="menu">
 
-    <div class="section-title">
-
-        <p>OUR FOOD</p>
-
-        <h2>MR. SHAURMA MENU</h2>
-
-        <p>Choose your favorites and add them to your order.</p>
-
+    <div class="section-heading reveal">
+        <span class="eyebrow">CHOOSE YOUR FAVORITE</span>
+        <h2>OUR <span>MENU</span></h2>
+        <p>Freshly prepared food, ready when you are.</p>
     </div>
 
 
-    <div class="menu-container">
+    <!-- GRILL -->
 
+    <div class="category reveal">
 
-        <!-- ITEM 1 -->
-
-        <div class="food-card">
-
-            <div class="food-icon">🌯</div>
-
-            <h3>Classic Shawarma</h3>
-
-            <p>
-                Chicken, fresh vegetables and our special sauce.
-            </p>
-
-            <div class="food-bottom">
-
-                <strong>1,500 ֏</strong>
-
-                <button onclick="addToCart('Classic Shawarma',1500)">
-                    + Add
-                </button>
-
-            </div>
-
+        <div class="category-title">
+            <span>🔥</span>
+            <h3>FROM THE GRILL</h3>
         </div>
 
+        <div class="menu-grid">
 
-        <!-- ITEM 2 -->
+            <article class="menu-card">
+                <div class="menu-number">01</div>
 
-        <div class="food-card">
+                <div class="menu-content">
+                    <span class="tag">POPULAR</span>
+                    <h3>Havi Qyabab</h3>
+                    <p>Fresh chicken kebab, grilled and served hot.</p>
 
-            <div class="food-icon">🌯</div>
+                    <div class="menu-bottom">
+                        <strong>800 <small>֏</small></strong>
 
-            <h3>Large Shawarma</h3>
-
-            <p>
-                Large chicken shawarma with vegetables and sauce.
-            </p>
-
-            <div class="food-bottom">
-
-                <strong>2,000 ֏</strong>
-
-                <button onclick="addToCart('Large Shawarma',2000)">
-                    + Add
-                </button>
-
-            </div>
-
-        </div>
+                        <button onclick="addToCart('Havi Qyabab', 800)">
+                            ADD +
+                        </button>
+                    </div>
+                </div>
+            </article>
 
 
-        <!-- ITEM 3 -->
+            <article class="menu-card">
+                <div class="menu-number">02</div>
 
-        <div class="food-card">
+                <div class="menu-content">
+                    <h3>Xozi Qyabab</h3>
+                    <p>Grilled pork kebab prepared fresh to order.</p>
 
-            <div class="food-icon">🍟</div>
+                    <div class="menu-bottom">
+                        <strong>950 <small>֏</small></strong>
 
-            <h3>French Fries</h3>
-
-            <p>
-                Crispy golden french fries.
-            </p>
-
-            <div class="food-bottom">
-
-                <strong>800 ֏</strong>
-
-                <button onclick="addToCart('French Fries',800)">
-                    + Add
-                </button>
-
-            </div>
+                        <button onclick="addToCart('Xozi Qyabab', 950)">
+                            ADD +
+                        </button>
+                    </div>
+                </div>
+            </article>
 
         </div>
+    </div>
 
 
-        <!-- ITEM 4 -->
+    <!-- DRINKS -->
 
-        <div class="food-card">
+    <div class="category reveal">
 
-            <div class="food-icon">🥤</div>
+        <div class="category-title">
+            <span>🥤</span>
+            <h3>DRINKS</h3>
+        </div>
 
-            <h3>Cola</h3>
+        <div class="menu-grid">
 
-            <p>
-                Cold refreshing drink.
-            </p>
+            <article class="menu-card compact">
 
-            <div class="food-bottom">
+                <div class="menu-content">
+                    <h3>Tan</h3>
+                    <p>Cold traditional refreshing drink.</p>
 
-                <strong>500 ֏</strong>
+                    <div class="menu-bottom">
+                        <strong>300 <small>֏</small></strong>
 
-                <button onclick="addToCart('Cola',500)">
-                    + Add
-                </button>
+                        <button onclick="addToCart('Tan', 300)">
+                            ADD +
+                        </button>
+                    </div>
+                </div>
 
-            </div>
+            </article>
+
+        </div>
+    </div>
+
+
+    <!-- SAUCES -->
+
+    <div class="category reveal">
+
+        <div class="category-title">
+            <span>🥫</span>
+            <h3>SAUCES</h3>
+        </div>
+
+        <div class="menu-grid">
+
+            <article class="menu-card compact">
+
+                <div class="menu-content">
+                    <h3>Ketchup</h3>
+                    <p>Classic ketchup sauce.</p>
+
+                    <div class="menu-bottom">
+                        <strong>250 <small>֏</small></strong>
+
+                        <button onclick="addToCart('Ketchup', 250)">
+                            ADD +
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="menu-card compact">
+
+                <div class="menu-content">
+                    <h3>Cheese Sauce</h3>
+                    <p>Creamy cheese sauce.</p>
+
+                    <div class="menu-bottom">
+                        <strong>300 <small>֏</small></strong>
+
+                        <button onclick="addToCart('Cheese Sauce', 300)">
+                            ADD +
+                        </button>
+                    </div>
+                </div>
+
+            </article>
 
         </div>
 
@@ -212,94 +258,29 @@
 </section>
 
 
-<!-- ORDER -->
+<!-- ABOUT / PROMO -->
 
-<section class="order-section" id="order">
+<section class="promo" id="about">
 
-    <div class="section-title">
+    <div class="promo-number reveal">MR.</div>
 
-        <p>YOUR CART</p>
+    <div class="promo-content reveal">
 
-        <h2>Your Order</h2>
+        <span class="eyebrow light">MADE IN DILIJAN</span>
 
-    </div>
+        <h2>
+            HUNGRY?<br>
+            <span>WE'VE GOT YOU.</span>
+        </h2>
 
-
-    <div class="order-box">
-
-        <div id="cart-items">
-
-            <p class="empty-cart">
-                Your cart is empty.
-            </p>
-
-        </div>
-
-
-        <div class="total">
-
-            <span>Total</span>
-
-            <span>
-                <span id="total-price">0</span> ֏
-            </span>
-
-        </div>
-
-
-        <hr>
-
-
-        <h3>Delivery Information</h3>
-
-
-        <label>Your name</label>
-
-        <input
-            type="text"
-            id="customer-name"
-            placeholder="Enter your name"
-        >
-
-
-        <label>Phone number</label>
-
-        <input
-            type="tel"
-            id="customer-phone"
-            placeholder="+374..."
-        >
-
-
-        <label>Delivery address</label>
-
-        <input
-            type="text"
-            id="customer-address"
-            placeholder="Your address in Dilijan"
-        >
-
-
-        <label>Comment</label>
-
-        <textarea
-            id="customer-comment"
-            placeholder="Extra sauce, no onions, etc."
-        ></textarea>
-
-
-        <button
-            class="place-order"
-            onclick="placeOrder()"
-        >
-            PLACE ORDER
-        </button>
-
-
-        <p class="order-note">
-            We will prepare your order information so you can contact
-            Mr. Shaurma to confirm it.
+        <p>
+            Fresh food, bold flavor and fast service.
+            Visit Mr. Shaurma in Dilijan or call us to order.
         </p>
+
+        <a href="tel:+37443300800">
+            CALL 043 300800
+        </a>
 
     </div>
 
@@ -308,26 +289,139 @@
 
 <!-- CONTACT -->
 
-<section class="contact" id="contact">
+<section class="contact-section" id="contact">
 
-    <h2>MR. SHAURMA</h2>
+    <div class="section-heading reveal">
+        <span class="eyebrow">COME VISIT</span>
+        <h2>FIND <span>US</span></h2>
+    </div>
 
-    <p>Gorki 7/8, Dilijan, Armenia</p>
+    <div class="contact-grid reveal">
 
-    <p>Open 12:00 – 22:00</p>
+        <div class="contact-card">
+            <span>01</span>
+            <small>ADDRESS</small>
+            <h3>Gorki 7/8</h3>
+            <p>Maxim Gorky Street<br>Dilijan, Armenia</p>
+        </div>
 
-    <a href="tel:+37443300800">
-        📞 043 300800
-    </a>
+        <div class="contact-card">
+            <span>02</span>
+            <small>OPEN</small>
+            <h3>12:00 — 22:00</h3>
+            <p>Delivery available<br>13:00 — 21:00</p>
+        </div>
+
+        <div class="contact-card">
+            <span>03</span>
+            <small>PHONE</small>
+            <h3>043 300800</h3>
+            <a href="tel:+37443300800">CALL NOW →</a>
+        </div>
+
+    </div>
 
 </section>
 
 
 <footer>
 
-    <p>© 2026 Mr. Shaurma • Dilijan</p>
+    <div class="footer-logo">
+        MR.<span>SHAURMA</span>
+    </div>
+
+    <p>Dilijan • Armenia</p>
+
+    <p class="copyright">
+        © 2026 Mr. Shaurma
+    </p>
 
 </footer>
+
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+        <div>
+            <small>YOUR ORDER</small>
+            <h2>MY CART</h2>
+        </div>
+
+        <button onclick="closeCart()">✕</button>
+    </div>
+
+
+    <div id="cart-items" class="cart-items">
+
+        <div class="empty-cart">
+            <span>🌯</span>
+            <h3>Your cart is empty</h3>
+            <p>Add something delicious from the menu.</p>
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+            <span>TOTAL</span>
+            <strong>
+                <span id="total-price">0</span> ֏
+            </strong>
+        </div>
+
+        <button class="checkout-btn" onclick="showCheckout()">
+            CONTINUE TO ORDER →
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- CHECKOUT -->
+
+<div class="checkout-modal" id="checkout-modal">
+
+    <div class="checkout-box">
+
+        <button class="close-checkout" onclick="closeCheckout()">
+            ✕
+        </button>
+
+        <span class="eyebrow">ALMOST THERE</span>
+        <h2>YOUR DETAILS</h2>
+
+        <label>Name</label>
+        <input id="customer-name" type="text" placeholder="Your name">
+
+        <label>Phone</label>
+        <input id="customer-phone" type="tel" placeholder="+374...">
+
+        <label>Delivery address</label>
+        <input id="customer-address" type="text" placeholder="Address in Dilijan">
+
+        <label>Comment</label>
+        <textarea id="customer-comment"
+                  placeholder="No onion, extra sauce..."></textarea>
+
+        <button class="final-order-btn" onclick="placeOrder()">
+            PREPARE MY ORDER
+        </button>
+
+        <p class="checkout-note">
+            After preparing the order, please call Mr. Shaurma
+            to confirm it.
+        </p>
+
+    </div>
+
+</div>
 
 
 <script src="script.js"></script>

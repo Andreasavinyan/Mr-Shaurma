@@ -1,20 +1,60 @@
 let cart = [];
 
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+/* =========================
+   CART
+========================= */
+
 function addToCart(name, price) {
 
-    const existingItem = cart.find(item => item.name === name);
+    const existingItem = cart.find(
+        item => item.name === name
+    );
 
     if (existingItem) {
+
         existingItem.quantity++;
+
     } else {
+
         cart.push({
             name: name,
             price: price,
             quantity: 1
         });
+
     }
 
     updateCart();
+    openCart();
 }
 
 
@@ -28,87 +68,195 @@ function removeFromCart(index) {
 
 function updateCart() {
 
-    const cartItems = document.getElementById("cart-items");
-    const cartCount = document.getElementById("cart-count");
-    const totalPrice = document.getElementById("total-price");
+    const cartItems =
+        document.getElementById("cart-items");
 
-    cartItems.innerHTML = "";
+    const cartCount =
+        document.getElementById("cart-count");
+
+    const totalPrice =
+        document.getElementById("total-price");
+
 
     let total = 0;
     let count = 0;
 
+
     if (cart.length === 0) {
 
-        cartItems.innerHTML =
-            '<p class="empty-cart">Your cart is empty.</p>';
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <span>🌯</span>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add something delicious
+                    from the menu.
+                </p>
+            </div>
+        `;
 
     } else {
 
+        cartItems.innerHTML = "";
+
+
         cart.forEach((item, index) => {
 
-            total += item.price * item.quantity;
+            const itemTotal =
+                item.price * item.quantity;
+
+            total += itemTotal;
             count += item.quantity;
 
-            const itemElement = document.createElement("div");
 
-            itemElement.className = "cart-item";
+            const element =
+                document.createElement("div");
 
-            itemElement.innerHTML = `
+
+            element.className = "cart-item";
+
+
+            element.innerHTML = `
+
                 <div>
-                    <strong>${item.name}</strong>
-                    <br>
-                    ${item.quantity} × ${item.price.toLocaleString()} ֏
+
+                    <h4>${item.name}</h4>
+
+                    <p>
+                        ${item.quantity} ×
+                        ${item.price.toLocaleString()} ֏
+                    </p>
+
                 </div>
 
-                <button
-                    class="remove-button"
-                    onclick="removeFromCart(${index})"
-                >
-                    Remove
-                </button>
+
+                <div>
+
+                    <strong>
+                        ${itemTotal.toLocaleString()} ֏
+                    </strong>
+
+                    <br>
+
+                    <button
+                        class="remove-btn"
+                        onclick="removeFromCart(${index})"
+                    >
+                        REMOVE
+                    </button>
+
+                </div>
+
             `;
 
-            cartItems.appendChild(itemElement);
+
+            cartItems.appendChild(element);
+
         });
+
     }
+
 
     cartCount.textContent = count;
 
-    totalPrice.textContent = total.toLocaleString();
+    totalPrice.textContent =
+        total.toLocaleString();
 }
 
 
-function scrollToOrder() {
+function openCart() {
 
     document
-        .getElementById("order")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+        .getElementById("cart-panel")
+        .classList.add("active");
+
+    document
+        .getElementById("cart-overlay")
+        .classList.add("active");
+
 }
 
 
-function placeOrder() {
+function closeCart() {
+
+    document
+        .getElementById("cart-panel")
+        .classList.remove("active");
+
+    document
+        .getElementById("cart-overlay")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function showCheckout() {
 
     if (cart.length === 0) {
 
-        alert("Please add something to your order first.");
+        alert("Your cart is empty.");
 
         return;
     }
 
 
+    closeCart();
+
+
+    document
+        .getElementById("checkout-modal")
+        .classList.add("active");
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkout-modal")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   PREPARE ORDER
+========================= */
+
+function placeOrder() {
+
     const name =
-        document.getElementById("customer-name").value.trim();
+        document
+            .getElementById("customer-name")
+            .value
+            .trim();
+
 
     const phone =
-        document.getElementById("customer-phone").value.trim();
+        document
+            .getElementById("customer-phone")
+            .value
+            .trim();
+
 
     const address =
-        document.getElementById("customer-address").value.trim();
+        document
+            .getElementById("customer-address")
+            .value
+            .trim();
+
 
     const comment =
-        document.getElementById("customer-comment").value.trim();
+        document
+            .getElementById("customer-comment")
+            .value
+            .trim();
 
 
     if (!name || !phone || !address) {
@@ -121,9 +269,10 @@ function placeOrder() {
     }
 
 
-    let orderText = "MR. SHAURMA ORDER\n\n";
-
     let total = 0;
+
+    let order =
+        "MR. SHAURMA ORDER\n\n";
 
 
     cart.forEach(item => {
@@ -133,29 +282,41 @@ function placeOrder() {
 
         total += itemTotal;
 
-        orderText +=
-            `${item.name} x${item.quantity} - ${itemTotal} AMD\n`;
+
+        order +=
+            `${item.name} x${item.quantity} — ` +
+            `${itemTotal} AMD\n`;
+
     });
 
 
-    orderText += `\nTOTAL: ${total} AMD`;
+    order +=
+        `\nTOTAL: ${total} AMD`;
 
-    orderText += `\n\nCustomer: ${name}`;
 
-    orderText += `\nPhone: ${phone}`;
+    order +=
+        `\n\nName: ${name}`;
 
-    orderText += `\nAddress: ${address}`;
+
+    order +=
+        `\nPhone: ${phone}`;
+
+
+    order +=
+        `\nAddress: ${address}`;
 
 
     if (comment) {
 
-        orderText += `\nComment: ${comment}`;
+        order +=
+            `\nComment: ${comment}`;
+
     }
 
 
     alert(
-        "Your order is ready!\n\n" +
-        orderText +
+        order +
         "\n\nPlease call 043 300800 to confirm your order."
     );
+
 }
