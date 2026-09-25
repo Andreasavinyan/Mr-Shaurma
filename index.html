@@ -11,20 +11,77 @@
 
 <body>
 
+<!-- LANGUAGE SCREEN -->
+
+<div id="language-screen" class="language-screen">
+
+    <div class="language-background-text">
+        SHAURMA
+    </div>
+
+    <div class="language-box">
+
+        <div class="language-logo">
+            MR.<span>SHAURMA</span>
+        </div>
+
+        <div class="language-line"></div>
+
+        <h1>Choose your language</h1>
+
+        <p>Ընտրեք լեզուն • Выберите язык</p>
+
+        <div class="language-buttons">
+
+            <button onclick="selectLanguage('hy')">
+                <span>🇦🇲</span>
+                <strong>Հայերեն</strong>
+            </button>
+
+            <button onclick="selectLanguage('en')">
+                <span>🇬🇧</span>
+                <strong>English</strong>
+            </button>
+
+            <button onclick="selectLanguage('ru')">
+                <span>🇷🇺</span>
+                <strong>Русский</strong>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NAVBAR -->
+
 <header class="navbar">
+
     <a href="#home" class="nav-logo">
         MR.<span>SHAURMA</span>
     </a>
 
     <nav>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" data-i18n="home">Home</a>
+        <a href="#menu" data-i18n="menu">Menu</a>
+        <a href="#contact" data-i18n="contact">Contact</a>
     </nav>
 
-    <button class="cart-btn" onclick="openCart()">
-        CART <span id="cart-count">0</span>
-    </button>
+    <div class="nav-actions">
+
+        <button class="language-change" onclick="changeLanguage()">
+            🌐
+        </button>
+
+        <button class="cart-btn" onclick="openCart()">
+            <span data-i18n="cart">CART</span>
+            <b id="cart-count">0</b>
+        </button>
+
+    </div>
+
 </header>
 
 
@@ -32,11 +89,15 @@
 
 <section class="hero" id="home">
 
-    <div class="hero-bg-text">SHAURMA</div>
+    <div class="hero-bg-text">
+        SHAURMA
+    </div>
 
     <div class="hero-content reveal">
 
-        <div class="hero-badge">DILIJAN • EST. LOCAL</div>
+        <div class="hero-badge">
+            DILIJAN • ARMENIA
+        </div>
 
         <h1>
             MR.
@@ -45,65 +106,79 @@
 
         <div class="red-line"></div>
 
-        <h2>HOT. FRESH. MADE FOR YOU.</h2>
+        <h2 data-i18n="heroTitle">
+            HOT. FRESH. DELICIOUS.
+        </h2>
 
-        <p>
-            Fresh fast food in the heart of Dilijan.
-            Order your favorites and enjoy.
+        <p data-i18n="heroText">
+            Fresh shawarma, barbecue and fast food in Dilijan.
         </p>
 
         <div class="hero-buttons">
-            <a href="#menu" class="primary-btn">
+
+            <a href="#menu"
+               class="primary-btn"
+               data-i18n="viewMenu">
                 VIEW MENU
             </a>
 
-            <a href="tel:+37443300800" class="secondary-btn">
+            <a href="tel:+37443300800"
+               class="secondary-btn"
+               data-i18n="callOrder">
                 CALL TO ORDER
             </a>
+
         </div>
 
     </div>
 
     <a href="#menu" class="scroll-down">
-        <span>SCROLL</span>
+        <span data-i18n="scroll">SCROLL</span>
         <div>↓</div>
     </a>
 
 </section>
 
 
-<!-- QUICK INFO -->
+<!-- INFO -->
 
 <section class="quick-info reveal">
 
     <div class="info">
         <span class="info-icon">📍</span>
+
         <div>
-            <small>FIND US</small>
+            <small data-i18n="findUs">FIND US</small>
             <strong>Gorki 7/8, Dilijan</strong>
         </div>
     </div>
 
+
     <div class="info">
         <span class="info-icon">🕐</span>
+
         <div>
-            <small>OPEN DAILY</small>
+            <small data-i18n="open">OPEN</small>
             <strong>12:00 — 22:00</strong>
         </div>
     </div>
 
+
     <div class="info">
         <span class="info-icon">🛵</span>
+
         <div>
-            <small>DELIVERY</small>
+            <small data-i18n="delivery">DELIVERY</small>
             <strong>13:00 — 21:00</strong>
         </div>
     </div>
 
+
     <div class="info">
         <span class="info-icon">☎</span>
+
         <div>
-            <small>CALL US</small>
+            <small data-i18n="callUs">CALL US</small>
             <strong>043 300800</strong>
         </div>
     </div>
@@ -116,60 +191,286 @@
 <section class="menu-section" id="menu">
 
     <div class="section-heading reveal">
-        <span class="eyebrow">CHOOSE YOUR FAVORITE</span>
-        <h2>OUR <span>MENU</span></h2>
-        <p>Freshly prepared food, ready when you are.</p>
+
+        <span class="eyebrow"
+              data-i18n="chooseFavorite">
+            CHOOSE YOUR FAVORITE
+        </span>
+
+        <h2>
+            MR. <span>SHAURMA</span>
+        </h2>
+
+        <p data-i18n="freshPrepared">
+            Freshly prepared for you.
+        </p>
+
     </div>
 
 
-    <!-- GRILL -->
+    <!-- MAIN FOOD -->
 
     <div class="category reveal">
 
         <div class="category-title">
             <span>🔥</span>
-            <h3>FROM THE GRILL</h3>
+            <h3 data-i18n="mainFood">MAIN MENU</h3>
         </div>
+
 
         <div class="menu-grid">
 
+            <!-- TONIR CHICKEN -->
+
             <article class="menu-card">
+
                 <div class="menu-number">01</div>
 
                 <div class="menu-content">
-                    <span class="tag">POPULAR</span>
-                    <h3>Havi Qyabab</h3>
-                    <p>Fresh chicken kebab, grilled and served hot.</p>
+
+                    <h3 data-i18n="tonirChicken">
+                        Tonir Chicken
+                    </h3>
 
                     <div class="menu-bottom">
-                        <strong>800 <small>֏</small></strong>
 
-                        <button onclick="addToCart('Havi Qyabab', 800)">
+                        <strong>4000 <small>֏</small></strong>
+
+                        <button
+                            data-i18n="add"
+                            onclick="addTranslatedItem('tonirChicken',4000)">
                             ADD +
                         </button>
+
                     </div>
+
                 </div>
+
             </article>
 
 
+            <!-- PORK SHAURMA -->
+
             <article class="menu-card">
+
                 <div class="menu-number">02</div>
 
                 <div class="menu-content">
-                    <h3>Xozi Qyabab</h3>
-                    <p>Grilled pork kebab prepared fresh to order.</p>
+
+                    <h3 data-i18n="porkShaurma">
+                        Pork Shaurma
+                    </h3>
+
+                    <p data-i18n="chooseSize">
+                        Choose size
+                    </p>
+
+                    <div class="size-buttons">
+
+                        <button onclick="addTranslatedItem('porkShaurmaSmall',1200)">
+                            <span data-i18n="small">Small</span>
+                            <b>1200 ֏</b>
+                        </button>
+
+                        <button onclick="addTranslatedItem('porkShaurmaLarge',1600)">
+                            <span data-i18n="large">Large</span>
+                            <b>1600 ֏</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CHICKEN SHAURMA -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">03</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="chickenShaurma">
+                        Chicken Shaurma
+                    </h3>
+
+                    <p data-i18n="chooseSize">
+                        Choose size
+                    </p>
+
+                    <div class="size-buttons">
+
+                        <button onclick="addTranslatedItem('chickenShaurmaSmall',1000)">
+                            <span data-i18n="small">Small</span>
+                            <b>1000 ֏</b>
+                        </button>
+
+                        <button onclick="addTranslatedItem('chickenShaurmaLarge',1400)">
+                            <span data-i18n="large">Large</span>
+                            <b>1400 ֏</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PORK BBQ -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">04</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="porkBBQ">
+                        Pork Barbecue
+                    </h3>
 
                     <div class="menu-bottom">
-                        <strong>950 <small>֏</small></strong>
 
-                        <button onclick="addToCart('Xozi Qyabab', 950)">
+                        <strong>1200 <small>֏</small></strong>
+
+                        <button
+                            data-i18n="add"
+                            onclick="addTranslatedItem('porkBBQ',1200)">
                             ADD +
                         </button>
+
                     </div>
+
                 </div>
+
+            </article>
+
+
+            <!-- CHICKEN BBQ -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">05</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="chickenBBQ">
+                        Chicken Barbecue
+                    </h3>
+
+                    <div class="menu-bottom">
+
+                        <strong>1000 <small>֏</small></strong>
+
+                        <button
+                            data-i18n="add"
+                            onclick="addTranslatedItem('chickenBBQ',1000)">
+                            ADD +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CHICKEN KEBAB -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">06</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="chickenKebab">
+                        Chicken Kebab
+                    </h3>
+
+                    <div class="menu-bottom">
+
+                        <strong>1000 <small>֏</small></strong>
+
+                        <button
+                            data-i18n="add"
+                            onclick="addTranslatedItem('chickenKebab',1000)">
+                            ADD +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- LAHMAJO -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">07</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="lahmajo">
+                        Lahmajo
+                    </h3>
+
+                    <p data-i18n="chooseSize">
+                        Choose option
+                    </p>
+
+                    <div class="size-buttons">
+
+                        <button onclick="addTranslatedItem('lahmajoSmall',600)">
+                            <span data-i18n="small">Small</span>
+                            <b>600 ֏</b>
+                        </button>
+
+                        <button onclick="addTranslatedItem('lahmajoLarge',750)">
+                            <span data-i18n="large">Large</span>
+                            <b>750 ֏</b>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- FRIES -->
+
+            <article class="menu-card">
+
+                <div class="menu-number">08</div>
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="fries">
+                        French Fries
+                    </h3>
+
+                    <div class="menu-bottom">
+
+                        <strong>600 <small>֏</small></strong>
+
+                        <button
+                            data-i18n="add"
+                            onclick="addTranslatedItem('fries',600)">
+                            ADD +
+                        </button>
+
+                    </div>
+
+                </div>
+
             </article>
 
         </div>
+
     </div>
 
 
@@ -179,56 +480,30 @@
 
         <div class="category-title">
             <span>🥤</span>
-            <h3>DRINKS</h3>
+            <h3 data-i18n="drinks">DRINKS</h3>
         </div>
+
 
         <div class="menu-grid">
 
             <article class="menu-card compact">
 
                 <div class="menu-content">
-                    <h3>Tan</h3>
-                    <p>Cold traditional refreshing drink.</p>
+
+                    <h3>Coca-Cola</h3>
+                    <p>250 ml</p>
 
                     <div class="menu-bottom">
-                        <strong>300 <small>֏</small></strong>
 
-                        <button onclick="addToCart('Tan', 300)">
-                            ADD +
-                        </button>
-                    </div>
-                </div>
-
-            </article>
-
-        </div>
-    </div>
-
-
-    <!-- SAUCES -->
-
-    <div class="category reveal">
-
-        <div class="category-title">
-            <span>🥫</span>
-            <h3>SAUCES</h3>
-        </div>
-
-        <div class="menu-grid">
-
-            <article class="menu-card compact">
-
-                <div class="menu-content">
-                    <h3>Ketchup</h3>
-                    <p>Classic ketchup sauce.</p>
-
-                    <div class="menu-bottom">
                         <strong>250 <small>֏</small></strong>
 
-                        <button onclick="addToCart('Ketchup', 250)">
+                        <button onclick="addToCart('Coca-Cola 250 ml',250)"
+                                data-i18n="add">
                             ADD +
                         </button>
+
                     </div>
+
                 </div>
 
             </article>
@@ -237,16 +512,44 @@
             <article class="menu-card compact">
 
                 <div class="menu-content">
-                    <h3>Cheese Sauce</h3>
-                    <p>Creamy cheese sauce.</p>
+
+                    <h3>Fanta</h3>
+                    <p>250 ml</p>
 
                     <div class="menu-bottom">
-                        <strong>300 <small>֏</small></strong>
 
-                        <button onclick="addToCart('Cheese Sauce', 300)">
+                        <strong>250 <small>֏</small></strong>
+
+                        <button onclick="addToCart('Fanta 250 ml',250)"
+                                data-i18n="add">
                             ADD +
                         </button>
+
                     </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="menu-card compact">
+
+                <div class="menu-content">
+
+                    <h3 data-i18n="tan">Tan</h3>
+                    <p>330 ml</p>
+
+                    <div class="menu-bottom">
+
+                        <strong>300 <small>֏</small></strong>
+
+                        <button onclick="addTranslatedItem('tan',300)"
+                                data-i18n="add">
+                            ADD +
+                        </button>
+
+                    </div>
+
                 </div>
 
             </article>
@@ -258,27 +561,31 @@
 </section>
 
 
-<!-- ABOUT / PROMO -->
+<!-- PROMO -->
 
-<section class="promo" id="about">
+<section class="promo">
 
-    <div class="promo-number reveal">MR.</div>
+    <div class="promo-number reveal">
+        MR.
+    </div>
 
     <div class="promo-content reveal">
 
-        <span class="eyebrow light">MADE IN DILIJAN</span>
+        <span class="eyebrow light"
+              data-i18n="madeDilijan">
+            MADE IN DILIJAN
+        </span>
 
-        <h2>
-            HUNGRY?<br>
-            <span>WE'VE GOT YOU.</span>
+        <h2 data-i18n="hungry">
+            HUNGRY?<br>WE'VE GOT YOU.
         </h2>
 
-        <p>
+        <p data-i18n="promoText">
             Fresh food, bold flavor and fast service.
-            Visit Mr. Shaurma in Dilijan or call us to order.
         </p>
 
-        <a href="tel:+37443300800">
+        <a href="tel:+37443300800"
+           data-i18n="callRestaurant">
             CALL 043 300800
         </a>
 
@@ -292,31 +599,73 @@
 <section class="contact-section" id="contact">
 
     <div class="section-heading reveal">
-        <span class="eyebrow">COME VISIT</span>
-        <h2>FIND <span>US</span></h2>
+
+        <span class="eyebrow"
+              data-i18n="comeVisit">
+            COME VISIT
+        </span>
+
+        <h2 data-i18n="findUsTitle">
+            FIND US
+        </h2>
+
     </div>
+
 
     <div class="contact-grid reveal">
 
         <div class="contact-card">
+
             <span>01</span>
-            <small>ADDRESS</small>
+
+            <small data-i18n="address">
+                ADDRESS
+            </small>
+
             <h3>Gorki 7/8</h3>
-            <p>Maxim Gorky Street<br>Dilijan, Armenia</p>
+
+            <p>
+                Maxim Gorky Street<br>
+                Dilijan, Armenia
+            </p>
+
         </div>
 
+
         <div class="contact-card">
+
             <span>02</span>
-            <small>OPEN</small>
+
+            <small data-i18n="hours">
+                HOURS
+            </small>
+
             <h3>12:00 — 22:00</h3>
-            <p>Delivery available<br>13:00 — 21:00</p>
+
+            <p>
+                <span data-i18n="delivery">Delivery</span>
+                <br>
+                13:00 — 21:00
+            </p>
+
         </div>
 
+
         <div class="contact-card">
+
             <span>03</span>
-            <small>PHONE</small>
+
+            <small data-i18n="phone">
+                PHONE
+            </small>
+
             <h3>043 300800</h3>
-            <a href="tel:+37443300800">CALL NOW →</a>
+
+            <a href="tel:+37443300800"
+               data-i18n="callNow">
+                CALL NOW →
+            </a>
+
         </div>
 
     </div>
@@ -332,50 +681,58 @@
 
     <p>Dilijan • Armenia</p>
 
-    <p class="copyright">
-        © 2026 Mr. Shaurma
-    </p>
+    <p>© 2026 Mr. Shaurma</p>
 
 </footer>
 
 
 <!-- CART -->
 
-<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-overlay"
+     id="cart-overlay"
+     onclick="closeCart()">
+</div>
+
 
 <aside class="cart-panel" id="cart-panel">
 
     <div class="cart-header">
+
         <div>
-            <small>YOUR ORDER</small>
-            <h2>MY CART</h2>
+            <small data-i18n="yourOrder">
+                YOUR ORDER
+            </small>
+
+            <h2 data-i18n="myCart">
+                MY CART
+            </h2>
         </div>
 
         <button onclick="closeCart()">✕</button>
-    </div>
-
-
-    <div id="cart-items" class="cart-items">
-
-        <div class="empty-cart">
-            <span>🌯</span>
-            <h3>Your cart is empty</h3>
-            <p>Add something delicious from the menu.</p>
-        </div>
 
     </div>
+
+
+    <div id="cart-items" class="cart-items"></div>
 
 
     <div class="cart-footer">
 
         <div class="cart-total">
-            <span>TOTAL</span>
+
+            <span data-i18n="total">
+                TOTAL
+            </span>
+
             <strong>
                 <span id="total-price">0</span> ֏
             </strong>
+
         </div>
 
-        <button class="checkout-btn" onclick="showCheckout()">
+        <button class="checkout-btn"
+                onclick="showCheckout()"
+                data-i18n="continueOrder">
             CONTINUE TO ORDER →
         </button>
 
@@ -390,34 +747,50 @@
 
     <div class="checkout-box">
 
-        <button class="close-checkout" onclick="closeCheckout()">
+        <button class="close-checkout"
+                onclick="closeCheckout()">
             ✕
         </button>
 
-        <span class="eyebrow">ALMOST THERE</span>
-        <h2>YOUR DETAILS</h2>
+        <span class="eyebrow"
+              data-i18n="almostThere">
+            ALMOST THERE
+        </span>
 
-        <label>Name</label>
-        <input id="customer-name" type="text" placeholder="Your name">
+        <h2 data-i18n="details">
+            YOUR DETAILS
+        </h2>
 
-        <label>Phone</label>
-        <input id="customer-phone" type="tel" placeholder="+374...">
 
-        <label>Delivery address</label>
-        <input id="customer-address" type="text" placeholder="Address in Dilijan">
+        <label data-i18n="name">Name</label>
 
-        <label>Comment</label>
-        <textarea id="customer-comment"
-                  placeholder="No onion, extra sauce..."></textarea>
+        <input id="customer-name" type="text">
 
-        <button class="final-order-btn" onclick="placeOrder()">
+
+        <label data-i18n="phone">Phone</label>
+
+        <input id="customer-phone" type="tel">
+
+
+        <label data-i18n="deliveryAddress">
+            Delivery address
+        </label>
+
+        <input id="customer-address" type="text">
+
+
+        <label data-i18n="comment">
+            Comment
+        </label>
+
+        <textarea id="customer-comment"></textarea>
+
+
+        <button class="final-order-btn"
+                onclick="placeOrder()"
+                data-i18n="prepareOrder">
             PREPARE MY ORDER
         </button>
-
-        <p class="checkout-note">
-            After preparing the order, please call Mr. Shaurma
-            to confirm it.
-        </p>
 
     </div>
 
